@@ -1,10 +1,13 @@
 import pandas as pd
+import os
 import plotly.express as px
 import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output
 
 # load the data
-df = pd.read_excel('/Users/swaransh/Downloads/Data Visualisation - COM7021 - [4566] Bakery- supporting document.xlsx')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_excel(os.path.join(BASE_DIR, '/Users/swaransh/Downloads/Bakery_supporting_document.xlsx'))
+
 
 # fix missing values
 df['Units Sold'] = df['Units Sold'].fillna(df['Units Sold'].median())
